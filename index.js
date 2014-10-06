@@ -5,6 +5,22 @@ var http = require('http');
 
 var debug = util.debuglog('net');
 
+// Hack
+if (!window) {
+	if (!self) {
+		var window = {
+			location: {
+				hostname: '' // TODO: get from worker
+				port: '' // TODO: get from worker
+			},
+			Blob: Blob
+		};
+	} else {
+		window = self;
+	}
+}
+// Hack
+
 var proxy = {
 	hostname: window.location.hostname,
 	port: window.location.port
