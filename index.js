@@ -10,7 +10,7 @@ if (!window) {
 	if (!self) {
 		var window = {
 			location: {
-				hostname: '' // TODO: get from worker
+				hostname: '', // TODO: get from worker
 				port: '' // TODO: get from worker
 			},
 			Blob: Blob
