@@ -6,14 +6,14 @@ var http = require('http');
 var debug = util.debuglog('net');
 
 // Hack
-if (!window) {
-	if (!self) {
+if (typeof window == 'undefined') {
+	if (typeof self == 'undefined') {
 		var window = {
 			location: {
 				hostname: '', // TODO: get from worker
 				port: '' // TODO: get from worker
 			},
-			Blob: Blob
+			Blob: typeof Blob == 'undefined' ? {} : Blob // NOTE: pure hack
 		};
 	} else {
 		window = self;
